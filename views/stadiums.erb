@@ -1,0 +1,6 @@
+<h1>Stadium Reviews</h1>
+<ul class="list-unstyled">
+    <% for stadium in @stadiums %>
+        <li><a href="/stadiums/<%= stadium[:id]%>"><%= stadium[:stadiumname] %></li>
+    <% end %>
+</ul>

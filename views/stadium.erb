@@ -1,0 +1,29 @@
+<div class="col-sm-9">
+
+<h1><%= @stadium[:stadiumname] %></h1>
+<p><%= @stadium[:location] %></p>
+
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" 
+  style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw&q=<%= @lat_long %>&zoom=6" allowfullscreen>
+</iframe>
+
+
+<form action="/stadiums/<%= @stadium[:id] %>/reviews/new" class="mt-5">
+  <button type="submit" class="btn btn-primary">Write a Review!</button>
+</form>
+
+<h3>Past Attendee Ratings and Comments</h3>
+    <% for reviewinfo in @reviews %>
+
+        <div class="media-body ml-3">
+          <h5 class="mt-0"><%= reviewinfo[:username] %>: <%= reviewinfo[:rating] %></h5>
+          <%= reviewinfo[:review] %>
+        </div>
+    <% end %>
+</div>
+
